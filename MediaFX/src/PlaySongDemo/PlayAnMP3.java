@@ -1,8 +1,8 @@
 package PlaySongDemo;
 
 /**
- * This code will play any song assuming that file is in folder songfiles. 
- * 
+ * This code will play any song assuming that file is in folder songfiles.
+ *
  * Programmer Rick Mercer
  */
 import java.io.File;
@@ -28,7 +28,8 @@ public class PlayAnMP3 extends Application {
   @Override
   public void start(Stage stage) throws Exception {
     BorderPane pane = new BorderPane();
-    String path = "songfiles/Capture.mp3";
+    //I, Rishav Kumar, changed the song to be played before pushing to github
+    String path = "songfiles/SwingCheese.mp3";
     pane.setCenter( new Label(path));
     playASong(path);
     // Put the pane in a sized Scene and show the GUI
@@ -38,9 +39,9 @@ public class PlayAnMP3 extends Application {
     stage.show();
   }
 
-  
+
   private void playASong(String path) {
-   
+
     // Need a File and URI object so the path works on all OSs
     File file = new File(path);
     URI uri = file.toURI();
@@ -49,12 +50,12 @@ public class PlayAnMP3 extends Application {
     Media media = new Media(uri.toString());
     MediaPlayer mediaPlayer = new MediaPlayer(media);
     mediaPlayer.play();
-      
+
     mediaPlayer.setOnEndOfMedia(new Waiter());
     System.out.println("You may need to shut this App down");
- 
+
     }
-  
+
   private class Waiter implements Runnable {
     @Override
     public void run() {
